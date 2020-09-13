@@ -24,14 +24,19 @@
         <main>
             <section>
                 <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="source_url" type="text" name="input_source_url" value="" onblur="onBlur()" placeholder="Source URL">
                     <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <strong>Natural Language Processing Key Results</strong>
+                <div id="nlp_key_results"></div>
+            </section>
+
+            <section>
+                <strong>Full Results:</strong>
+                <div id="full_results"></div>
             </section>
         </main>
 

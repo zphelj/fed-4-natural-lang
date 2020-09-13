@@ -36,7 +36,7 @@ app.post('/process_nlp_url', function (req, res) {
   res.send(projectData);
 });
 
-// debug testing
+// for testing server access
 app.get('/hello', (req, res) => {
   console.log('GET: Hello was requested');
   res.send("Hello World!");
@@ -46,7 +46,7 @@ app.get('/hello', (req, res) => {
     res.send(mockAPIResponse)
 }) */
 
-// designates what port the app will listen to for incoming requests
+// Startup the server instance
 app.listen(serverport, function () {
   console.log(`Natural Language Server app listening on port ${serverport}!`);
   console.log(`Your MeaningCloud API key is ${meaningCloudAPIkey}`);
