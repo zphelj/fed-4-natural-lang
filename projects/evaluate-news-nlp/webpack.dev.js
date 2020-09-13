@@ -8,6 +8,13 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     //stats: 'verbose',
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: false,
+        host: 'localhost',
+        port: 8081,
+        open: true
+      },
     module: {
         rules: [
             {
