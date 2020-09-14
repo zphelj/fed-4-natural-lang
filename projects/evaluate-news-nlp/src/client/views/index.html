@@ -23,20 +23,24 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="source_url" type="text" name="input_source_url" value="" onblur="onBlur()" placeholder="Source URL">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
+                <input id="source_url" type="text" name="input_source_url" value="" placeholder="Source URL">
+                <button id="generate" type="submit">Generate</button>
             <section>
 
             <section>
                 <strong>Natural Language Processing Key Results</strong>
-                <div id="nlp_key_results"></div>
+                <div id="nlp_key_results">
+                    <div id="agreement"></div>
+                    <div id="confidence"></div>
+                    <div id="irony"></div>
+                </div>
             </section>
 
             <section>
                 <strong>Full Results:</strong>
-                <div id="full_results"></div>
+                <div id="full_results">
+                    <textarea id="full_results_area" name="" rows="10" cols="50"></textarea>
+                </div>
             </section>
         </main>
 

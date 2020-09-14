@@ -33,29 +33,49 @@ app.use(bodyParser.json());
 console.log(__dirname)
 
 // get the NLP response for the provided URL
-callMeaningCloud = async (url='') => {
+/* callMeaningCloud = (url='') => {
   console.log(`Requesting NLP on ${url}`);
-  const response = await fetch(url);
-  // console.log('response', response);
-  try {
-    urlData = await response.json();
-    //console.log('Returned Weather Data obj = ', weatherData);
-    return urlData;
-  }
-  catch(error) {
-    console.log('ERROR callMeaningCloud(): ', error);
-    // Log and carry on
-  };
-};
+  const response = fetch(url)
+    .then(function(data) {
+      return data.JSON();
+    })
+  return response;
+}; */
+/* callMeaningCloud = (url='') => {
+  console.log(`Requesting NLP on ${url}`);
+  fetch(url)
+    .then(res => res.json())
+    .then(function(json) {
+      console.log('Result = ', json);
+      return json;
+    })
+}; */
 
 app.get('/', function (req, res) {
 res.sendFile('dist/index.html')
-// res.sendFile(path.resolve('src/client/views/index.html'))
+// res.sendFile(path.resolve('src/client/views/index.html')) // - pre-webpack
 })
 
-app.post('/process_nlp_url', function (req, res) {
-  console.log('POST: NLP requested:');
-  console.log("URL = ", req.body.url);
+/* take the provided URL and call out to the NLP provider for processing */
+app.get('/process_nlp_url', function (req, res) {
+  console.log('GET: NLP requested:');
+  console.log('URL = ', req.query.url);
+  let mcURL = `${MeaningCloudURLRoot}&url=${req.query.url}`
+  console.log('Querying Meaning Cloud with: ', mcURL);
+  fetch(mcURL)
+    .then(res => res.json())
+    .then(function(json) {
+      console.log("Status is ", json.status);
+      // res.send(JSON.stringify(json.status)); // send back a readable response
+      // build a summary + all response to the client
+      let summary = {
+        'status': json.status.msg,
+        'agreement': json.agreement,
+        'confidence': json.confidence,
+        'irony': json.irony
+      };
+      res.send(JSON.stringify(summary)); // send back a readable response
+    })
 });
 
 // for testing server access
@@ -64,13 +84,16 @@ app.get('/hello', (req, res) => {
   res.send("Hello from the NLP process server...");
 });
 
-app.get('/nlp_test', (req, res) => {
+/* app.get('/nlp_test', (req, res) => {
   console.log('GET: URL Test was requested');
-  let data = callMeaningCloud(`${MeaningCloudURLRoot}&url=http://jayphelps.name`)
-  //console.log("Status is ", data.body.status.msg);
-  console.log(data);
-  res.send(JSON.stringify(data)); // send back a readable response
-});
+  fetch(`${MeaningCloudURLRoot}&url=http://jayphelps.name`)
+    .then(res => res.json())
+    .then(function(json) {
+      // console.log('Result = ', json);
+      console.log("Status is ", json.status.msg);
+      res.send(JSON.stringify(json.status)); // send back a readable response
+    })
+}); */
 
 // Startup the server instance
 app.listen(serverport, function () {
