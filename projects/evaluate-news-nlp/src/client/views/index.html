@@ -3,11 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
     </head>
 
     <body>
@@ -17,31 +12,31 @@
                 Logo
             </div>
             <div class="">
-                navigation
+                navigation (stub - not needed for this one page sample)
             </div>
         </header>
 
         <main>
             <section>
                 <input id="source_url" type="text" name="input_source_url" value="" placeholder="Source URL">
-                <button id="generate" type="submit">Generate</button>
+                <input type="submit" name="" value="submit" onclick="return Client.handleURLsubmit(event)">
             <section>
 
             <section>
                 <strong>Natural Language Processing Key Results</strong>
                 <div id="nlp_key_results">
-                    <div id="agreement"></div>
+                    <div id="agreement">Make a request and see!</div>
                     <div id="confidence"></div>
                     <div id="irony"></div>
                 </div>
             </section>
 
-            <section>
+            <!-- <section>
                 <strong>Full Results:</strong>
                 <div id="full_results">
                     <textarea id="full_results_area" name="" rows="10" cols="50"></textarea>
                 </div>
-            </section>
+            </section> -->
         </main>
 
         <footer>

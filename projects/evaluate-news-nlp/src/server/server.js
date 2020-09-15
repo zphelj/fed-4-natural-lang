@@ -13,13 +13,14 @@ const serverport = process.env.NLP_SERVER_PORT;
 const fetch = require('node-fetch');
 
 // &url=[URL] needs to be appended to this before calling, default return is JSON
-//const MeaningCloudResponse = require('./callMeaningCloud.js')
 const MeaningCloudURLRoot = `https://api.meaningcloud.com/sentiment-2.1?key=${meaningCloudAPIkey}&lang=en`;
 
 var path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser');
-//const { callMeaningCloud } = require('./callMeaningCloud');
+
+// needed for webpack dev server use (different ports = CORS issues)
+const cors = require('cors');
 
 const app = express()
 
@@ -29,6 +30,7 @@ app.use(express.static('dist'))
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 console.log(__dirname)
 
