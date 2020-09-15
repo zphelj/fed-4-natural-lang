@@ -13,12 +13,12 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'source-map',
-    //stats: 'verbose',
+    stats: 'verbose',
     devServer: {
         //contentBase: path.join(__dirname, 'dist'),
         compress: false,
         host: 'localhost',
-        port: 8081,
+        port: 8085,
         open: true
       },
     module: {
@@ -41,9 +41,9 @@ module.exports = {
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
-            // dry: true;
+            dry: true,
             // Write Logs to Console
-            verbose: true,
+            verbose: true
             // Automatically remove all unused webpack assets on rebuild
             //cleanStaleWebpackAssets: true,
             //protectWebpackAssets: false
