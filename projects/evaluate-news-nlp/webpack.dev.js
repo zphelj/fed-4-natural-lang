@@ -15,7 +15,7 @@ module.exports = {
     devtool: 'source-map',
     stats: 'verbose',
     devServer: {
-        //contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, 'dist'),
         compress: false,
         host: 'localhost',
         port: 8080,
@@ -31,6 +31,18 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: '/images/',
+                    publicPath: 'images/',
+                    query: {
+                      name: 'images/[name].[ext]',
+                    },
+                },
             }
         ]
     },

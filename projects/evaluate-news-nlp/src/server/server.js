@@ -15,7 +15,7 @@ const fetch = require('node-fetch');
 // &url=[URL] needs to be appended to this before calling, default return is JSON
 const MeaningCloudURLRoot = `https://api.meaningcloud.com/sentiment-2.1?key=${meaningCloudAPIkey}&lang=en`;
 
-var path = require('path')
+//var path = require('path') pre-webpack
 const express = require('express')
 const bodyParser = require('body-parser');
 
@@ -27,31 +27,11 @@ const app = express()
 app.use(express.static('dist'))
 
 /* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
 console.log(__dirname)
-
-// get the NLP response for the provided URL
-/* callMeaningCloud = (url='') => {
-  console.log(`Requesting NLP on ${url}`);
-  const response = fetch(url)
-    .then(function(data) {
-      return data.JSON();
-    })
-  return response;
-}; */
-/* callMeaningCloud = (url='') => {
-  console.log(`Requesting NLP on ${url}`);
-  fetch(url)
-    .then(res => res.json())
-    .then(function(json) {
-      console.log('Result = ', json);
-      return json;
-    })
-}; */
 
 app.get('/', function (req, res) {
 res.sendFile('dist/index.html')
@@ -75,8 +55,12 @@ app.get('/process_nlp_url', function (req, res) {
         'agreement': json.agreement,
         'confidence': json.confidence,
         'irony': json.irony
-      };
+      }
       res.send(JSON.stringify(summary)); // send back a readable response
+    })
+    .catch(error => {
+      console.log('Error in process_nlp_url: ', error)
+      res.send(JSON.stringify(error)); // send back a readable response
     })
 });
 

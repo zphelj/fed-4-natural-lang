@@ -28,8 +28,10 @@ See Lesson 4, Final Touches, concept 2, Fixing Our Functionality for more detail
 
 We'll be using the MeaningCloud system and the API key is stored in the .env file.
 
+More information on the Sentiment Analysis API is available at this [link](https://www.meaningcloud.com/developer/sentiment-analysis/doc/2.1).
+
 ### Create an .ENV file
 In the ROOT directory of the project create a file named '.env' and include these two variables:
 
-MEANINGCLOUD_API_KEY={insert your personal key here}
-NLP_SERVER_PORT={a port to use} if none is specified the default will be 8085
+    MEANINGCLOUD_API_KEY={insert your personal key here}
+    NLP_SERVER_PORT={a port to use} if none is specified the default will be 8085

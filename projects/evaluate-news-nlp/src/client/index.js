@@ -10,6 +10,8 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
+import './images/Dog_01.jpg'
+
 export { // need to export to the named Output webpack library
   test_url,
   urlNLP,

@@ -10,7 +10,7 @@ module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
     output: {
-        //path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'dist'),
         //filename: 'bundle.min.js',
         libraryTarget: 'var',
         library: 'Client'
@@ -23,11 +23,23 @@ module.exports = {
             {
                 test: '/\.js$/',
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: 'babel-loader'
             },
             {
                 test: /\.scss$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: '/images/',
+                    publicPath: 'images/',
+                    query: {
+                      name: 'images/[name].[ext]',
+                    },
+                },
             }
         ]
     },

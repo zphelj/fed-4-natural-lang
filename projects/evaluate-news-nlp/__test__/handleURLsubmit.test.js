@@ -6,6 +6,10 @@ import { handleURLsubmit } from '../src/client/js/submithandling'
 // reference via the library 'Client' (per lesson 4.2) and JEST cannot resolve those references. If you try a
 // reference error will always occur.
 //
+// Udacity References:  https://knowledge.udacity.com/questions/120909
+//                      https://knowledge.udacity.com/questions/99012
+//
+// Sample error output follows.
 /*
 
 FAIL  __test__/handleURLsubmit.test.js
