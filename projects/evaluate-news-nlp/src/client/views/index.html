@@ -31,18 +31,19 @@
                     <div id="irony"></div>
                 </div>
             </section>
-
-            <!-- <section>
-                <strong>Full Results:</strong>
-                <div id="full_results">
-                    <textarea id="full_results_area" name="" rows="10" cols="50"></textarea>
-                </div>
-            </section> -->
         </main>
 
         <footer>
             <div id="myFooter">Last request: N/A</div>
         </footer>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
     </body>
 </html>
