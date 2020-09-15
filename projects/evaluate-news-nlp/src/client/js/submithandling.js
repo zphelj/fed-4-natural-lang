@@ -24,7 +24,6 @@ function UpdatePage(data) {
   document.getElementById('agreement').innerHTML = `Agreement: ${data.agreement}`;
   document.getElementById('confidence').innerHTML = `Confidence: ${data.confidence}`;
   document.getElementById('irony').innerHTML = `Irony: ${data.irony}`;
-  // document.getElementById('full_results_area').innerHTML = data;
 };
 
   // get NLP for the URL provided

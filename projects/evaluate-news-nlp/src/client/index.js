@@ -1,8 +1,8 @@
 // Need to import or webpack won't know it exists
 import { test_url } from './js/testurl'
-import { handleURLsubmit } from './js/handleURLsubmit'
-import { UpdatePage } from './js/handleURLsubmit'
-import { urlNLP } from './js/handleURLsubmit'
+import { handleURLsubmit } from './js/submithandling'
+import { UpdatePage } from './js/submithandling'
+import { urlNLP } from './js/submithandling'
 
 import './styles/resets.scss'
 import './styles/base.scss'
