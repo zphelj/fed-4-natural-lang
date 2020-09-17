@@ -1,37 +1,37 @@
-# Front End Nanodegree Program
+# Project Instructions
 
-Front End Nanodegree Content & Project Resources
+This is my version of the code for this project.
 
-## Table of Contents
+The goal of this project was to give me practice with:
+- Setting up Webpack
+- Sass styles
+- Webpack Loaders and Plugins
+- Creating layouts and page design
+- Service workers
+- Using APIs and creating requests to external urls
 
-* [Projects](#projects)
-* [Courses](#courses)
-* [Style-Guide](#style-guide)
+It uses Natural Language Procesing from Meaning Cloud.
 
-## Projects
+> Natural language processing (NLP) is a subfield of computer science, information engineering, and artificial intelligence
+concerned with the interactions between computers and human (natural) languages, in particular how to program computers to
+process and analyze large amounts of natural language data.
 
-The following is a list of current projects required to complete the Front End Nanodegree.
+You could spend years and get a masters degree focusing on the details of creating NLP systems and algorithms. Typically, NLP programs require far more resources than individuals have access to, but a fairly new API called Aylien has put a public facing API in front of their NLP system. We will use it in this project to determine various attributes of an article or blog post.
 
-Note that projects that do not include associated starter code are not linked here.
+## Getting started (Webpack dev)
 
-1. Personal Blog Website
-2. [Landing Page](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page)
-3. [Weather Journal App](https://github.com/udacity/fend/tree/refresh-2019/projects/weather-journal-app)
-4. [Evaluate A News Article with Natural Language Processing](https://github.com/udacity/fend/tree/refresh-2019/projects/evaluate-news-nlp)
-5. Capstone - Travel App
+if running using Webpack Dev Server you need to run the server separately because webpack will be running on port 8080 (configurable in webpack.dev.js) and the server will be running on port 8085 (configurable in .env). To start the server from the root of the 'evaluate-news-nlp' folder use 'node ./src/server/server.js'. Start the webpack dev server in the usual fashion; 'npm run build-dev'.
 
-## Courses
+See Lesson 4, Final Touches, concept 2, Fixing Our Functionality for more details.
 
-The following is a list of the courses associated with the Front End Nanodegree.
+## Setting up the API
 
-* C1 - CSS, Website Layout, Website Components
-* C2 - JavaScript & The DOM
-* C3 - Web API's and Asynchronous Applications
-* C4 - Build Tools and Single Page Web Apps
-* C5 - Capstone
+We'll be using the MeaningCloud system and the API key is stored in the .env file.
 
-## Style-Guide
+More information on the Sentiment Analysis API is available at this [link](https://www.meaningcloud.com/developer/sentiment-analysis/doc/2.1).
 
-See below for the Udacity Style Guide used thoroughout the Front End Nanodegree.
+### Create an .ENV file
+In the ROOT directory of the project create a file named '.env' and include these two variables:
 
-* [Nanodegree Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/)
+    MEANINGCLOUD_API_KEY={insert your personal key here}
+    NLP_SERVER_PORT={a port to use} if none is specified the default will be 8085
